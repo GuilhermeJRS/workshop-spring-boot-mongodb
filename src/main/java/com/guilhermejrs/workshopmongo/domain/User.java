@@ -2,10 +2,17 @@ package com.guilhermejrs.workshopmongo.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+// Só a anotação @Document pura, já mapeia a coleção com o nome da classe em minúscula, 
+// mas a forma abaixo é usada quando a cleção ou base de dados tem um nome diferente da classe:
+@Document(collection = "user") 
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String id;
 	private String name;
 	private String email;
